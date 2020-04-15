@@ -1143,6 +1143,12 @@ textarea {
 	text-decoration: underline;
 }
 
+.cfAdBlock {
+	background-color: blue;
+	height: 100px;
+	width: 100%;
+}
+
 /* Media Queries */
 @media screen and (max-width: 1475px) {
 	.container--outer {

@@ -1,0 +1,23 @@
+{{ $adId := .Get "adId" }}
+
+{{ if eq $adId "underFirstParagraph" }}
+	<!-- Ezoic - astra_entry_content_inline_top - under_first_paragraph -->
+	<div id="ezoic-pub-ad-placeholder-105" class="cfAdBlock"> </div>
+	<!-- End Ezoic - astra_entry_content_inline_top - under_first_paragraph -->
+{{ else if eq $adId "underSecondParagraph" }}
+	<!-- Ezoic - astra_entry_content_inline_middle_top - under_second_paragraph -->
+	<div id="ezoic-pub-ad-placeholder-106" class="cfAdBlock"> </div>
+	<!-- End Ezoic - astra_entry_content_inline_middle_top - under_second_paragraph -->
+{{ else if eq $adId "midContent" }}
+	<!-- Ezoic - astra_entry_content_inline_middle_bottom - mid_content -->
+	<div id="ezoic-pub-ad-placeholder-107" class="cfAdBlock"> </div>
+	<!-- End Ezoic - astra_entry_content_inline_middle_bottom - mid_content -->
+{{ else if eq $adId "bottomLongContent" }}
+	<!-- Ezoic - astra_entry_content_inline_bottom - long_content -->
+	<div id="ezoic-pub-ad-placeholder-108" class="cfAdBlock"> </div>
+	<!-- End Ezoic - astra_entry_content_inline_bottom - long_content -->
+{{ else if eq $adId "bottomLongContent" }}
+	<!-- Ezoic - astra_entry_content_after - longest_content -->
+	<div id="ezoic-pub-ad-placeholder-104" class="cfAdBlock"> </div>
+	<!-- End Ezoic - astra_entry_content_after - longest_content -->
+{{ end}}

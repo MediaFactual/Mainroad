@@ -27,7 +27,17 @@
 </head>
 <body class="body">
 	<div class="container container--outer">
+
+		<!-- Ezoic - astra_header_before - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-101" class="cfAdBlock"> </div>
+		<!-- End Ezoic - astra_header_before - top_of_page -->
+
 		{{ partial "header" . }}
+
+		<!-- Ezoic - astra_header_after - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-102" class="cfAdBlock"> </div>
+		<!-- End Ezoic - astra_header_after - top_of_page -->
+
 		<div class="wrapper flex">
 			<div class="primary">
 			{{ block "main" . }}
@@ -40,12 +50,22 @@
 			</div>
 			{{ partial "sidebar.html" . }}
 		</div>
+		<!-- Ezoic - astra_footer_before - bottom_of_page -->
+		<div id="ezoic-pub-ad-placeholder-111" class="cfAdBlock"> </div>
+		<!-- End Ezoic - astra_footer_before - bottom_of_page -->
+
 		{{ partial "footer" . }}
+
+		<!-- Ezoic - astra_footer_after - bottom_of_page -->
+		<div id="ezoic-pub-ad-placeholder-112" class="cfAdBlock"> </div>
+		<!-- End Ezoic - astra_footer_after - bottom_of_page -->
 	</div>
 <script async defer src="{{ "js/menu.js" | relURL }}"></script>
+
 {{ range .Site.Params.customJS -}}
-<script src="{{ . | relURL }}"></script>
+	<script src="{{ . | relURL }}"></script>
 {{- end }}
+
 {{- partial "mathjax.html" . -}}
 </body>
 </html>

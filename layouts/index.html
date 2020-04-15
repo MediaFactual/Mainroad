@@ -5,10 +5,24 @@
 		{{ . }}
 	</div>
 	{{- end }}
+
 	{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
-	{{- range $paginator.Pages }}
+	{{- range $index, $value := $paginator.Pages }}
+
 		{{- .Render "summary" }}
+
+		{{ if eq $index 2 }}
+			<!-- Ezoic - astra_entry_content_inline_top - under_first_paragraph -->
+			<div id="ezoic-pub-ad-placeholder-105" class="cfAdBlock"> </div>
+			<!-- End Ezoic - astra_entry_content_inline_top - under_first_paragraph -->
+		{{ else if eq $index 6 }}
+			<!-- Ezoic - astra_entry_content_inline_middle_top - under_second_paragraph -->
+			<div id="ezoic-pub-ad-placeholder-106" class="cfAdBlock"> </div>
+			<!-- End Ezoic - astra_entry_content_inline_middle_top - under_second_paragraph -->
+		{{ end }}
+
 	{{- end }}
+
 	{{- if and (eq $paginator.TotalNumberOfElements 0) (not $.Content) }}
 		<div class="warning">
 			{{ partial "svg/files.svg" (dict "class" "warning__icon") }}
