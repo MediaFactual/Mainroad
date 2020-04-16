@@ -1,23 +1,46 @@
-{{- if .Site.Menus.main }}
-<nav class="menu">
-	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
-		<span class="menu__btn-title" tabindex="-1">{{ T "menu_label" }}</span>
-	</button>
-	<ul class="menu__list">
-		{{- $currentNode := . }}
-		{{- range .Site.Menus.main }}
-		{{- if .Name }}
-		<li class="menu__item{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} menu__item--active{{ end }}">
-			<a class="menu__link" href="{{ .URL }}">
-				{{ .Pre }}
-				<span class="menu__text">{{ .Name }}</span>
-				{{ .Post }}
+<nav class="navbar navbar-expand-lg navbar-light p-0">
+
+		<div class="logo">
+			<a  href="{{ "" | relLangURL }}" title="{{ .Site.Title }}" class="logo__link" rel="home">
+				<img width="140" height="58" src="https://s3.amazonaws.com/img.bhs4.com/bright-hub-education/uploads/2018/11/19031253/brighthubeducation-logo-140x58.png"
+					class="custom-logo" alt="Bright Hub Education"
+					srcset="https://s3.amazonaws.com/img.bhs4.com/bright-hub-education/uploads/2018/11/19031253/brighthubeducation-logo-140x58.png 140w, https://s3.amazonaws.com/img.bhs4.com/bright-hub-education/uploads/2018/11/19031253/brighthubeducation-logo.png 213w"
+					sizes="(max-width: 140px) 100vw, 140px">
 			</a>
-		</li>
-		{{- end }}
-		{{- end }}
-	</ul>
-</nav>
-{{ else -}}
-<div class="divider"></div>
-{{- end }}
+		</div>
+
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse text-center" id="navigation">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ .Site.BaseURL | absLangURL }}">{{ .Site.Params.Home }}</a>
+            </li>
+            {{ range .Site.Menus.main }}
+				{{ if .HasChildren }}
+				<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+					{{ .Name }}
+				</a>
+				<div class="dropdown-menu">
+					{{ range .Children }}
+						<a class="dropdown-item" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+					{{ end }}
+				</div>
+				</li>
+				{{ else }}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+					</li>
+				{{ end }}
+			{{ end }}
+			<form class="form-inline my-2 my-lg-0">
+					<input class="form-control mr-sm-2" type="search" placeholder="Search ..." aria-label="Search">
+				</form>
+          </ul>
+
+        </div>
+      </nav>

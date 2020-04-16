@@ -1143,10 +1143,43 @@ textarea {
 	text-decoration: underline;
 }
 
+/*
 .cfAdBlock {
 	background-color: blue;
 	height: 100px;
 	width: 100%;
+}
+*/
+
+.header .container {
+	background-color: #375764;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: rgba(248, 244, 244, 0.7) !important;
+}
+
+.navbar-light .navbar-nav .show>.nav-link {
+    color: rgba(248, 244, 244, 0.7) !important;
+}
+
+.navbar input { max-width: 140px; height: 40px; }
+
+.dropdown-menu {
+	background-color: #375764 !important;
+}
+
+.dropdown-menu .dropdown-item {
+	color: white !important;
+}
+
+.dropdown-menu .dropdown-item:hover {
+	color: rgba(248, 244, 244, 0.7) !important;
+	background-color: #375764;
 }
 
 /* Media Queries */
@@ -1184,6 +1217,7 @@ textarea {
 	.footer__copyright {
 		text-align: center;
 	}
+	.navbar input { max-width: 100% !important; }
 }
 
 @media screen and (max-width: 767px) {
