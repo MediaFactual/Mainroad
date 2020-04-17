@@ -1,0 +1,49 @@
+{{ define "main" }}
+<main class="main" role="main">
+
+	<script async src="https://cse.google.com/cse.js?cx=partner-pub-6409535612800042:3546560145"></script>
+
+	<article class="post">
+		<header class="post__header">
+
+			<!-- Ezoic - astra_primary_content_top - top_of_page -->
+			<div id="ezoic-pub-ad-placeholder-109" class="cfAdBlock"> </div>
+			<!-- End Ezoic - astra_primary_content_top - top_of_page -->
+
+			<h1 class="post__title">{{ .Title }}</h1>
+
+			{{- with .Params.lead }}
+				<p class="post__lead">{{ . }}</p>
+			{{- end }}
+			{{ with partial "post_meta.html" . -}}
+				<div class="post__meta meta">{{ . }}</div>
+			{{- end }}
+
+			<!-- Ezoic - astra_entry_content_before - under_page_title -->
+			<div id="ezoic-pub-ad-placeholder-103" class="cfAdBlock"> </div>
+			<!-- End Ezoic - astra_entry_content_before - under_page_title -->
+		</header>
+
+		<div class="content post__content clearfix">
+			{{ .Content }}
+		</div>
+
+		<div class="col-md-12">
+			<p>
+				<!--
+				<gcse:searchresults-only></gcse:searchresults-only>
+				-->
+
+				<div class="gcse-search"></div>
+			</p>
+		</div><!-- end col-md-8 -->
+
+	</article>
+</main>
+
+
+<!-- Ezoic - astra_primary_content_bottom - bottom_of_page -->
+<div id="ezoic-pub-ad-placeholder-110" class="cfAdBlock"> </div>
+<!-- End Ezoic - astra_primary_content_bottom - bottom_of_page -->
+
+{{ end }}

@@ -73,6 +73,18 @@
 	<script src="{{ . | relURL }}"></script>
 {{- end }}
 
+<script>
+		var form = document.getElementById('searchForm');
+		form.addEventListener('submit', onSearchSubmit);
+
+	function onSearchSubmit(event) {
+		event.preventDefault();
+		var searchParam = event.target.elements[0].value;
+		var searchPageUrl = "{{ .Site.Params.baseURL }}/search?q=" + encodeURI(searchParam);
+		window.location.replace(searchPageUrl);
+	}
+</script>
+
 {{- partial "mathjax.html" . -}}
 </body>
 </html>
