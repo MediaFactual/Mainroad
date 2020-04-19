@@ -1,11 +1,14 @@
 <article class="list__item post">
-	{{- if .Params.thumbnail }}
 	<figure class="list__thumbnail">
 		<a href="{{ .Permalink }}">
+			{{- if .Params.thumbnail }}
 			<img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}" />
+			{{ else }}
+			<img alt="" src="{{ $.Site.Params.defaultThumbnail | relURL }}" alt="thumbnail"/>
+			{{ end }}
 		</a>
 	</figure>
-	{{- end }}
+
 	<header class="list__header">
 		<h3 class="list__title post__title ">
 			<a href="{{ .RelPermalink }}" rel="bookmark">
