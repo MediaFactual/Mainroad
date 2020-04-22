@@ -26,13 +26,20 @@
 			{{ .Content }}
 		</div>
 
-		{{ $filteredByTag :=  where .Site.Pages "Params.tag_slug" .Params.slug }}
-
-		{{ range first 10 $filteredByTag }}
-			{{ .Render "summary" }}
+		{{ if eq .Params.taxonomy_type "tag"}}
+			{{ $filteredByTag :=  where .Site.Pages "Params.tag_slug" .Params.slug }}
+			{{ range first 10 $filteredByTag }}
+				{{ .Render "summary" }}
+			{{ end }}
+			<a href="/tags/{{ .Params.long_slug }}/page/2/">Read More on this Topic &gt;</a>
+		{{ else }}
+			{{ $filteredByTag :=  where .Site.Pages "Params.category_slug" .Params.slug }}
+			{{ range first 10 $filteredByTag }}
+				{{ .Render "summary" }}
+			{{ end }}
+			<a href="/categories/{{ .Params.long_slug }}/page/2/">Read More on this Topic &gt;</a>
 		{{ end }}
 
-		<a href="/tags/{{ .Params.long_slug }}/page/2/">Read More on this Topic &gt;</a>
 
 	</article>
 </main>
