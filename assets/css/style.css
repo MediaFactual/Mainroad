@@ -131,7 +131,7 @@ textarea {
 	font-weight: 700;
 	color: #fff;
 	white-space: pre-line;
-	background: #2a2a2a;
+	background: #3b6f82;
 }
 
 .btn:hover {
@@ -1183,6 +1183,35 @@ textarea {
 }
 
 h1, h2, h3, h4 { color: #375764 }
+
+.subnav {
+	border-top: solid 2px beige;
+	background-color: #375764;
+	overflow: hidden;
+  }
+
+  /* Style the links inside the navigation bar */
+  .subnav a {
+	float: left;
+	color: wheat;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+  }
+
+  /* Change the color of links on hover */
+  .subnav a:hover {
+	background-color: #ddd;
+	color: black;
+  }
+
+  /* Add a color to the active/current link */
+  .subnav a.active {
+	background-color: #4CAF50;
+	color: white;
+  }
+
 
 /* Media Queries */
 @media screen and (max-width: 1475px) {

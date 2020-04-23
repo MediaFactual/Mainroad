@@ -16,9 +16,7 @@
 
         <div class="collapse navbar-collapse text-center" id="navigation">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ .Site.BaseURL | absLangURL }}">{{ .Site.Params.Home }}</a>
-            </li>
+
             {{ range .Site.Menus.main }}
 				{{ if .HasChildren }}
 				<li class="nav-item dropdown">
@@ -42,5 +40,16 @@
 			</form>
           </ul>
 
-        </div>
-      </nav>
+		</div>
+
+</nav>
+
+{{ if eq .Params.layout "taxonomypage" }}
+<div class="row">
+		<div class="subnav">
+			{{  range $elem_val := .Params.featured_categories }}
+				<a href="{{ .Site.Params.baseURL }}/{{ $elem_val.slug }}" class="">{{ $elem_val.name }}</a>
+			{{ end}}
+		</div>
+</div>
+{{ end }}
